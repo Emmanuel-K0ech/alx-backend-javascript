@@ -1,0 +1,13 @@
+{
+    "name": "My Ubuntu Container",
+    "containerName": "my-ubuntu-container",
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "remoteUser": "root",  // Optional: or any other user you want to use in the container
+    "workspaceFolder": "/workspace",  // Directory where your code will be available inside the container
+    "mounts": [
+      "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ]
+  }
+  
