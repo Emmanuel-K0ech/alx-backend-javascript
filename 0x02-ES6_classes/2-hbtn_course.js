@@ -14,21 +14,21 @@ class HolbertonCourse {
   }
 
   get students() {
-    return this.students;
+    return this._students;
   }
 
-  set name(name) {
-    if (typeof name !== 'string') {
+  set name(value) {
+    if (typeof value !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    this._name = name;
+    this._name = value;
   }
 
-  set length(length) {
-    if (typeof length !== 'number') {
+  set length(value) {
+    if (typeof value !== 'number') {
       throw new TypeError('Length must be a number');
     }
-    this._length = length;
+    this._length = value;
   }
 
   set students(students) {
