@@ -41,8 +41,7 @@ const countstds = (csvPath) => new Promise((resolve, reject) => {
       report.push(`Number of students in ${field}: ${stds.length}. List: ${names}`);
     }
 
-    resolve(report.join('\n')); // Ensure a return value here
-    // Optional, explicitly return undefined to avoid ESLint warning
+    resolve(report.join('\n')); 
   });
 });
 
@@ -59,25 +58,21 @@ const sendResponse = (res, statusCode, message) => {
     'Content-Length': contentLength,
   });
   res.end(message);
-  // Optional, explicitly return undefined to avoid ESLint warning
 };
 
 const routes = {
   '/': (_, res) => {
     sendResponse(res, 200, 'Hello Holberton School!');
-    // Added explicit return to avoid ESLint warning
   },
   '/students': (_, res) => {
     countstds(DB_FILE)
       .then((report) => {
         sendResponse(res, 200, `This is the list of our students\n${report}`);
-        // Added explicit return to avoid ESLint warning
       })
       .catch((error) => {
         sendResponse(res, 500, `This is the list of our students\n${error.message}`);
-        // Added explicit return to avoid ESLint warning
       });
-    // Optional, explicit return for consistency
+    
   },
 };
 
