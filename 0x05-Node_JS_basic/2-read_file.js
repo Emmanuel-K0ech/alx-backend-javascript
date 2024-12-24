@@ -6,10 +6,10 @@ const fs = require('fs');
  */
 const countstds = (csvPath) => {
   if (!fs.existsSync(csvPath)) {
-    throw new Error(`Cannot load the database: File "${csvPath}" does not exist.`);
+    throw new Error('Cannot load the database');
   }
   if (!fs.statSync(csvPath).isFile()) {
-    throw new Error(`Cannot load the database: Path "${csvPath}" is not a file.`);
+    throw new Error('Cannot load the database');
   }
 
   const fileLines = fs.readFileSync(csvPath, 'utf-8').trim().split('\n');
